@@ -267,7 +267,7 @@ export default {
      * called once the input is blurred
      */
     inputBlurred () {
-      if (this.typeable) {
+      if (this.typeable && this.typedDate !== false) {
         const parsedDate = this.getTypedDate(this.input.value)
 
         if (isNaN(parsedDate)) {
@@ -275,7 +275,7 @@ export default {
           this.input.value = null
           this.typedDate = null
         } else {
-          this.typedDate = this.input.value
+          this.typedDate = false
           this.$emit('selectTypedDate', parsedDate)
         }
       }

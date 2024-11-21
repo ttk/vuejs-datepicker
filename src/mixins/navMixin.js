@@ -291,18 +291,18 @@ export default {
      * Sets the correct focus on next tick
      */
     reviewFocus () {
-      this.tabbableCell = null
-      this.resetTabbableCell = true
-
-      this.$nextTick(() => {
-        this.setNavElements()
-
-        setTimeout(() => {
-          this.applyFocus()
-        }, this.focus.delay)
-
-        this.resetTabbableCell = false
-      })
+      // this.tabbableCell = null
+      // this.resetTabbableCell = true
+      //
+      // this.$nextTick(() => {
+      //   this.setNavElements()
+      //
+      //   setTimeout(() => {
+      //     this.applyFocus()
+      //   }, this.focus.delay)
+      //
+      //   this.resetTabbableCell = false
+      // })
     },
     /**
      * Stores the current tabbableCell of an inline datepicker
