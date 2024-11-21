@@ -66,7 +66,7 @@
 
     <div class="example">
         <h3>v-model datepicker</h3>
-        <datepicker placeholder="Select Date" v-model="vModelExample"></datepicker>
+        <datepicker placeholder="Select Date" v-model="vModelExample" :typeable="true"></datepicker>
         <code>
             &lt;datepicker placeholder="Select Date" v-model="vmodelexample"&gt;&lt;/datepicker&gt;
         </code>
