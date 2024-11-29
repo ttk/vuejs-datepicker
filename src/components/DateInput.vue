@@ -117,8 +117,17 @@ export default {
       if (!this.selectedDate) {
         return null
       }
-      if (this.typedDate) {
+      if (this.typedDate !== null && this.typedDate !== false) {
         return this.typedDate
+      }
+      return typeof this.format === 'function'
+        ? this.format(this.selectedDate)
+        : this.utils.formatDate(this.selectedDate, this.format)
+    },
+
+    formattedSelectedValue () {
+      if (!this.selectedDate) {
+        return null
       }
       return typeof this.format === 'function'
         ? this.format(this.selectedDate)
@@ -189,7 +198,9 @@ export default {
       }
 
       if (!this.input.value) {
-        this.$emit('selectTypedDate', null)
+        if (this.selectedDate) {
+          this.input.value = this.formattedSelectedValue
+        }
         return
       }
 
@@ -271,8 +282,11 @@ export default {
         const parsedDate = this.getTypedDate(this.input.value)
 
         if (isNaN(parsedDate)) {
-          this.clearDate()
-          this.input.value = null
+          if (this.selectedDate) {
+            this.input.value = this.formattedSelectedValue
+          } else {
+            this.clearDate()
+          }
           this.typedDate = null
         } else {
           this.typedDate = false
