@@ -193,23 +193,7 @@ export default {
      * Selects a typed date and closes the calendar
      */
     handleKeydownEnter () {
-      if (!this.typeable) {
-        return
-      }
-
-      if (!this.input.value) {
-        if (this.selectedDate) {
-          this.input.value = this.formattedSelectedValue
-        }
-        return
-      }
-
-      const parsedDate = this.getTypedDate(this.input.value)
-
-      if (!isNaN(parsedDate)) {
-        this.typedDate = this.input.value
-        this.$emit('selectTypedDate', parsedDate)
-      }
+      this.inputBlurred()
     },
     /**
      * Closes the calendar
