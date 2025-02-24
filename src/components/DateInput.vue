@@ -114,11 +114,11 @@ export default {
   },
   computed: {
     formattedValue () {
-      if (!this.selectedDate) {
-        return null
-      }
       if (this.typedDate !== null && this.typedDate !== false) {
         return this.typedDate
+      }
+      if (!this.selectedDate) {
+        return null
       }
       return typeof this.format === 'function'
         ? this.format(this.selectedDate)
