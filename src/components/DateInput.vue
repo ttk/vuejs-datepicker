@@ -77,6 +77,10 @@ export default {
     openDate: Date,
     parseTypedDate: Function,
     resetTypedDate: [Date],
+    allowTypedClear: {
+      type: Boolean,
+      default: false
+    },
     selectedDate: {
       type: Date,
       default: null
@@ -267,7 +271,11 @@ export default {
 
         if (isNaN(parsedDate)) {
           if (this.selectedDate) {
-            this.input.value = this.formattedSelectedValue
+            if (this.input.value === '' && this.allowTypedClear) {
+              this.clearDate()
+            } else {
+              this.input.value = this.formattedSelectedValue
+            }
           } else {
             this.clearDate()
           }

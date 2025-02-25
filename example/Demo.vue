@@ -28,7 +28,7 @@
 
     <div class="example">
       <h3>Typeable datepicker with custom formatter (dd.MM.yyyy)</h3>
-      <datepicker placeholder="Type or select date" :typeable="true" format="dd.MM.yyyy" :parse-typed-date="parseTypedDate" />
+      <datepicker placeholder="Type or select date" :typeable="true" format="dd.MM.yyyy" :parse-typed-date="parseTypedDate" v-model="openDate" :allow-typed-clear="false" />
       <code>
         &lt;datepicker placeholder="Type or select date" :typeable="true"&gt;&lt;/datepicker&gt;
       </code>

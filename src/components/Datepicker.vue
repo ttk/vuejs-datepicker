@@ -24,6 +24,7 @@
       :name="name"
       :open-date="openDate"
       :parse-typed-date="parseTypedDate"
+      :allow-typed-clear="allowTypedClear"
       :pattern="pattern"
       :placeholder="placeholder"
       :ref-name="refName"
@@ -158,6 +159,10 @@ export default {
       type: Function
     },
     showEdgeDates: {
+      type: Boolean,
+      default: false
+    },
+    allowTypedClear: {
       type: Boolean,
       default: false
     },
